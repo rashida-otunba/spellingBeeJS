@@ -1,48 +1,56 @@
 'use strict';
 //get the div items in the game
-const gameDiv = document.getElementById("game");
-const wordDiv = document.getElementById("word");
-const letterDiv = document.getElementById("letters");
-const loadDiv = document.getElementById("loadingBee");
+const gameBoardDIV = document.getElementById('gameboard');
+
+const loadingBeeDIV = document.getElementById('loadingBee');
+
+const gameDIV = document.getElementById('game');
+
+const wordDIV = document.getElementById('word');
+
+const lettersDIV = document.getElementById('letters');
 
 // get the div items in the wordsBank
-const wordsBankDiv = document.querySelector("#wordsBank");
-const foundTitleDiv = document.querySelector("#foundTitle");
-const wordsDiv = document.querySelector("#words");
+
+const wordsBankDIV = document.querySelector('#wordsBank');
+
+const foundTitleH4 = document.querySelector('#foundTitle');
+
+const wordsDIV = document.querySelector('#words');
 
 //create your buttons
-const a_button = document.createElement("button");
-a_button.setAttribute("id", "a_button");
-a_button.setAttribute("value", "A");
-a_button.classList.add("button","is-warning", "m-2");
-a_button.innerHTML = "A";
+const a_Button = document.createElement('button');
+a_Button.classList.add("button", "is-warning", "m-2");
+a_Button.setAttribute("value", "A");//this is all we want it to produce; value="A"; gives the div the physical value of 'A' 
+a_Button.innerHTML = "A";
 
-const b_button = document.createElement("button");
-b_button.setAttribute("id", "b_button");
-b_button.setAttribute("value", "B");
-b_button.classList.add("button", "is-warning", "m-2");
-b_button.innerHTML = "B";
+const b_Button = document.createElement('button');
+b_Button.classList.add("button", "is-warning", "m-2");
+b_Button.setAttribute("value", "B");
+b_Button.innerHTML = "B";
 
-const c_button = document.createElement("button");
-c_button.setAttribute("id", "c_button");
-c_button.setAttribute("value", "C");
-c_button.classList.add("button", "is-warning", "m-2");
-c_button.innerHTML = "C";
 
-const d_button = document.createElement("button");
-d_button.setAttribute("id", "d_button");
-d_button.setAttribute("value", "D");
-d_button.classList.add("button", "is-warning", "m-2");
-d_button.innerHTML = "D";
+const c_Button = document.createElement('button');
+c_Button.classList.add("button", "is-warning", "m-2");
+c_Button.setAttribute("value", "C");
+c_Button.innerHTML = "C";
 
-const e_button = document.createElement("button");
-e_button.setAttribute("id", "e_button");
-e_button.setAttribute("value", "E");
-e_button.classList.add("button", "is-warning", "m-2");
-e_button.innerHTML = "E";
+const d_Button = document.createElement('button');
+d_Button.classList.add("button", "is-warning", "m-2");
+d_Button.setAttribute("value", "D");
+d_Button.innerHTML = "D";
+
+const e_Button = document.createElement('button');
+e_Button.classList.add("button", "is-warning", "m-2");
+e_Button.setAttribute("value", "E");
+e_Button.innerHTML = "E";
+
+const f_Button = document.createElement('button');
+f_Button.classList.add("button", "is-warning", "m-2");//class makes it LOOK like a button 
+f_Button.setAttribute("value", "F");
+f_Button.innerHTML = "F";
 
 const addButton = document.createElement('div');
-addButton.setAttribute("id", "add-button");
 addButton.classList.add("button", "is-black");
 addButton.innerHTML = "ADD";
 
@@ -50,30 +58,29 @@ addButton.innerHTML = "ADD";
 //** NOTE: setTimeout is just to slow the load so you can see it. but you could use it to add a CSS loaders and other neat stuff!! :)
 
 //using EventListener "DOMContentLoaded", load the add buttons
-document.addEventListener("DOMContentLoaded", (e) => {
-  setTimeout(() => {
-    gameDiv.appendChild(addButton);
-  }, 3500);
-
-  console.log("DOM LOADED");
+document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        gameDIV.appendChild(addButton);
+    }, 3500)
 });
 
-//using an IIFE, load the letter button
-//Why did I put the letters in the IFFE??  HINT: LOOK AT THE CONSOLE LOG AND SEE WHEN IT FIRES.
 
-(() => {
-  console.log("IFFE LOADED");
-  setTimeout(() => {
-    loadDiv.classList.toggle("hide");
-    wordDiv.classList.toggle("hide");
-    wordsBankDiv.classList.toggle("hide");
-    letterDiv.appendChild(a_button);
-    letterDiv.appendChild(b_button);
-    letterDiv.appendChild(c_button);
-    letterDiv.appendChild(d_button);
-    letterDiv.appendChild(e_button);
-  }, 3000);
-})();
+    //using an IIFE, load the letter button
+    //Why did I put the letters in the IFFE??  HINT: LOOK AT THE CONSOLE LOG AND SEE WHEN IT FIRES.
+
+    (() => {
+        setTimeout(() => {
+            loadingBeeDIV.classList.toggle("hide");
+            wordDIV.classList.toggle("hide");
+            wordsBankDIV.classList.toggle("hide");
+            lettersDIV.appendChild(a_Button);
+            lettersDIV.appendChild(b_Button);
+            lettersDIV.appendChild(c_Button);
+            lettersDIV.appendChild(d_Button);
+            lettersDIV.appendChild(e_Button);
+            lettersDIV.appendChild(f_Button);
+        }, 3000)
+    })();
 
 //Step-3 write the listeners to take a letter and add to your word div
 
