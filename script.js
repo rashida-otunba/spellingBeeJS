@@ -92,44 +92,66 @@ a_Button.addEventListener("click", (event) => { //'e' can also work as opposed t
     console.log(clickedLetter, "button clicked");
 });
 
-b_Button.addEventListener("click", (event) => { 
-    event.preventDefault();  
+b_Button.addEventListener("click", (event) => {
+    event.preventDefault();
     clickedLetter = b_Button.value;
     wordDIV.innerHTML += clickedLetter;
     console.log(clickedLetter, "button clicked");
 });
 
-c_Button.addEventListener("click", (event) => { 
-    event.preventDefault();  
+c_Button.addEventListener("click", (event) => {
+    event.preventDefault();
     clickedLetter = c_Button.value;
     wordDIV.innerHTML += clickedLetter;
     console.log(clickedLetter, "button clicked");
 });
 
-d_Button.addEventListener("click", (event) => { 
-    event.preventDefault();  
+d_Button.addEventListener("click", (event) => {
+    event.preventDefault();
     clickedLetter = d_Button.value;
     wordDIV.innerHTML += clickedLetter;
     console.log(clickedLetter, "button clicked");
 });
 
-e_Button.addEventListener("click", (event) => { 
-    event.preventDefault();  
+e_Button.addEventListener("click", (event) => {
+    event.preventDefault();
     clickedLetter = e_Button.value;
     wordDIV.innerHTML += clickedLetter;
     console.log(clickedLetter, "button clicked");
 });
 
-f_Button.addEventListener("click", (event) => { 
-    event.preventDefault();  
+f_Button.addEventListener("click", (event) => {
+    event.preventDefault();
     clickedLetter = f_Button.value;
     wordDIV.innerHTML += clickedLetter;
     console.log(clickedLetter, "button clicked");
 });
 
-
-
 //add a function to take your word from the word div and add it to an Array to then add to your Words Bank
+
+const wordsBankArray = [];
+
+let wordCount = 0;
+
+foundTitleH4.innerHTML = `You have found ${wordCount} words`;
+
+wordsBankDIV.appendChild(foundTitleH4);
+
+addButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    wordsBankArray.push(wordDIV.innerHTML);
+    console.log("wordsBankArray", wordsBankArray);
+
+    let newWordDIV = document.createElement("div");
+    newWordDIV.setAttribute("id", `${wordCount}`);
+    newWordDIV.classList.add("is-size-2");
+    newWordDIV.innerHTML = wordsBankArray[wordCount];
+    wordsBankDIV.appendChild(newWordDIV);
+    wordCount++;
+    foundTitleH4.innerHTML = `You have found ${wordCount} words`;
+    wordDIV.innerHTML = ""; //empty the word div 
+});
+
 
 
 
