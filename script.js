@@ -65,24 +65,68 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-    //using an IIFE, load the letter button
-    //Why did I put the letters in the IFFE??  HINT: LOOK AT THE CONSOLE LOG AND SEE WHEN IT FIRES.
+//using an IIFE, load the letter button
+//Why did I put the letters in the IFFE??  HINT: LOOK AT THE CONSOLE LOG AND SEE WHEN IT FIRES.
 
-    (() => {
-        setTimeout(() => {
-            loadingBeeDIV.classList.toggle("hide");
-            wordDIV.classList.toggle("hide");
-            wordsBankDIV.classList.toggle("hide");
-            lettersDIV.appendChild(a_Button);
-            lettersDIV.appendChild(b_Button);
-            lettersDIV.appendChild(c_Button);
-            lettersDIV.appendChild(d_Button);
-            lettersDIV.appendChild(e_Button);
-            lettersDIV.appendChild(f_Button);
-        }, 3000)
-    })();
+(() => {
+    setTimeout(() => {
+        loadingBeeDIV.classList.toggle("hide");
+        wordDIV.classList.toggle("hide");
+        wordsBankDIV.classList.toggle("hide");
+        lettersDIV.appendChild(a_Button);
+        lettersDIV.appendChild(b_Button);
+        lettersDIV.appendChild(c_Button);
+        lettersDIV.appendChild(d_Button);
+        lettersDIV.appendChild(e_Button);
+        lettersDIV.appendChild(f_Button);
+    }, 3000)
+})();
 
 //Step-3 write the listeners to take a letter and add to your word div
+let clickedLetter = '';
+
+a_Button.addEventListener("click", (event) => { //'e' can also work as opposed to 'event'; this will always attempt to send to a database
+    event.preventDefault();  //preventDefault will shut down the behavior the button will attempt to try to submit something 
+    clickedLetter = a_Button.value; //this is all you have to do to assign a value to the clicked letter 
+    wordDIV.innerHTML += clickedLetter;
+    console.log(clickedLetter, "button clicked");
+});
+
+b_Button.addEventListener("click", (event) => { 
+    event.preventDefault();  
+    clickedLetter = b_Button.value;
+    wordDIV.innerHTML += clickedLetter;
+    console.log(clickedLetter, "button clicked");
+});
+
+c_Button.addEventListener("click", (event) => { 
+    event.preventDefault();  
+    clickedLetter = c_Button.value;
+    wordDIV.innerHTML += clickedLetter;
+    console.log(clickedLetter, "button clicked");
+});
+
+d_Button.addEventListener("click", (event) => { 
+    event.preventDefault();  
+    clickedLetter = d_Button.value;
+    wordDIV.innerHTML += clickedLetter;
+    console.log(clickedLetter, "button clicked");
+});
+
+e_Button.addEventListener("click", (event) => { 
+    event.preventDefault();  
+    clickedLetter = e_Button.value;
+    wordDIV.innerHTML += clickedLetter;
+    console.log(clickedLetter, "button clicked");
+});
+
+f_Button.addEventListener("click", (event) => { 
+    event.preventDefault();  
+    clickedLetter = f_Button.value;
+    wordDIV.innerHTML += clickedLetter;
+    console.log(clickedLetter, "button clicked");
+});
+
 
 
 //add a function to take your word from the word div and add it to an Array to then add to your Words Bank

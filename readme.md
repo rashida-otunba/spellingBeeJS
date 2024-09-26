@@ -42,3 +42,10 @@ Now that we have the elements available and the buttons in JS, lets first do a s
       - toggle a class hide for the ***loading DIV***, ***word DIV***, &  the ***words bank DIV***.  This will give animation feel.
       - appends your letter buttons to your ***letter DIV***.
 >NOTE:  The difference in the times is just to make the loading more visible.
+
+### Step 3
+
+Next, lets add the listeners to add the letters from our buttons to the ***word DIV***, where we can see our word built by clicking on the letter buttons.
+
+  1. Create an empty variable to "store" your clicked letter.
+  2. Make an ***event listener*** for each of your 6 letter buttons.  Use the value we set in Step 1 and the empty variable to append the ***word DIV innerHTML***.
